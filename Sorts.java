@@ -30,15 +30,26 @@ public class Sorts
         return array;
     }
     
-    public static int[] insertionSort(int[] array);
+    public static int[] insertionSort(int[] array)
     {
-        for(int i = 1; i<array.length; i++)
+        for (int i = 1; i < array.length; i++) 
         {
-            for(int j = i-1; i<
+            for (int j = i; j > 0; j--) 
             {
-                
+                if (array[j - 1] > array[j]) 
+                {
+                    int temp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
+                }
             }
         }
+        return array;
+    }
+    
+    public static int[] bubbleSort(int[] array)
+    {
+        
     }
 
     public static void test()
@@ -59,5 +70,11 @@ public class Sorts
         System.out.println(Arrays.toString(selectionSort(test3)));
         System.out.println(Arrays.toString(selectionSort(test4)));
         System.out.println(Arrays.toString(selectionSort(test5)));
+        
+        System.out.println(Arrays.toString(insertionSort(test1)));
+        System.out.println(Arrays.toString(insertionSort(test2)));
+        System.out.println(Arrays.toString(insertionSort(test3)));
+        System.out.println(Arrays.toString(insertionSort(test4)));
+        System.out.println(Arrays.toString(insertionSort(test5)));
     }
 }
