@@ -6,62 +6,73 @@
  * @version (a version number or a date)
  */
 import java.util.*;
-public class Sorts
+public class Sorting
 {
 
-    public static int[] selectionSort(int[] array)
+    public static void selectionSort(int[] array)
     {
+        int comparisons = 0;
+        int swaps = 0;
         for(int i = 0; i<array.length; i++)
         {
             int min = array[i];
             int locationMin = i;
-            for(int j = i; j<array.length; j++)
+            for(int j = i+1; j<array.length; j++)
             {
+                comparisons++;
                 if(array[j]<min)
                 {
                     min=array[j];
                     locationMin = j;
                 }
             }
+            swaps++;
             
             array[locationMin]=array[i];
             array[i]=min;
         }
-        return array;
+        System.out.print(" " + comparisons + ", " + swaps);
     }
     
-    public static int[] insertionSort(int[] array)
+    public static void insertionSort(int[] array)
     {
+        int comparisons = 0;
+        int assignments = 0;
         for (int i = 1; i < array.length; i++) 
         {
-            for (int j = i; j > 0; j--) 
+            int temp = array[i];
+            int j = i;
+            while(j!= 0 && temp<array[j-1]) 
             {
-                if (array[j - 1] > array[j]) 
-                {
-                    int temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
-                }
+                array[j] = array[j-1];
+                j--;
+                comparisons++;
             }
+            array[j] = temp;
+            assignments++;
         }
-        return array;
+        System.out.print(" " + comparisons + ", " + assignments/3);
     }
     
-    public static int[] bubbleSort(int[] array)
+    public static void bubbleSort(int[] array)
     {
+        long comparisons = 0;
+        long swaps = 0;
         for(int i = 0; i<array.length; i++)
         {
-            for(int j = 0; i<array.length-1; i++)
+            for(int j = 0; j<array.length-1; j++)
             {
-                if(array[j+1]<array[j])
+                comparisons++;
+                if(array[j]>array[j+1])
                 {
                     int temp = array[j];
                     array[j]=array[j+1];
                     array[j+1]=temp;
+                    swaps++;
                 }
             }
         }
-        return array;
+        System.out.print(" " + comparisons + ", " + swaps);
     }
     
     public static void mergeSort(int[] array)
@@ -89,33 +100,33 @@ public class Sorts
         int[] sorted = new int[end+1];
         int firstMark = beg;
         int secondMark = mid+1;
-        int count = 0;
+        int location = 0;
         while(firstMark<=mid && secondMark<=end)
         {
             if(array[firstMark]<array[secondMark])
             {
-                sorted[count] = array[firstMark];
+                sorted[location] = array[firstMark];
                 firstMark++;
-                count++;
+                location++;
             }
             else
             {
-                sorted[count] = array[secondMark];
+                sorted[location] = array[secondMark];
                 secondMark++;
-                count++;
+                location++;
             }
         }
         while(firstMark!=mid+1)
         {
-            sorted[count] = array[firstMark];
+            sorted[location] = array[firstMark];
             firstMark++;
-            count++;
+            location++;
         }
         while(secondMark!=end+1)
         {
-            sorted[count] = array[secondMark];
+            sorted[location] = array[secondMark];
             secondMark++;
-            count++;
+            location++;
         }
         
         for(int i = 0; i < end+1-beg; i++)
@@ -137,19 +148,19 @@ public class Sorts
         int[] test5 = {0, 0, 0, 5, -1};
         int[] result5 = {-1, 0, 0, 0, 5};
         
-        System.out.println(Arrays.toString(selectionSort(test1)));
+        /*System.out.println(Arrays.toString(selectionSort(test1)));
         System.out.println(Arrays.toString(selectionSort(test2)));
         System.out.println(Arrays.toString(selectionSort(test3)));
         System.out.println(Arrays.toString(selectionSort(test4)));
-        System.out.println(Arrays.toString(selectionSort(test5)));
+        System.out.println(Arrays.toString(selectionSort(test5)));*/
         
-        System.out.println(Arrays.toString(insertionSort(test1)));
+        /*System.out.println(Arrays.toString(insertionSort(test1)));
         System.out.println(Arrays.toString(insertionSort(test2)));
         System.out.println(Arrays.toString(insertionSort(test3)));
         System.out.println(Arrays.toString(insertionSort(test4)));
-        System.out.println(Arrays.toString(insertionSort(test5)));
+        System.out.println(Arrays.toString(insertionSort(test5)));*/
         
-        System.out.println(Arrays.toString(bubbleSort(test1)));
+        /*System.out.println(Arrays.toString(bubbleSort(test1)));
         System.out.println(Arrays.toString(bubbleSort(test2)));
         System.out.println(Arrays.toString(bubbleSort(test3)));
         System.out.println(Arrays.toString(bubbleSort(test4)));
@@ -164,6 +175,6 @@ public class Sorts
         mergeSort(test4);
         System.out.println(Arrays.toString(test4));
         mergeSort(test5);
-        System.out.println(Arrays.toString(test5));
+        System.out.println(Arrays.toString(test5));*/
     }
 }
