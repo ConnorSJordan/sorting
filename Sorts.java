@@ -113,7 +113,7 @@ public class Sorts
         }
         while(secondMark!=end+1)
         {
-            sorted[count] = array[firstMark];
+            sorted[count] = array[secondMark];
             secondMark++;
             count++;
         }
@@ -137,7 +137,7 @@ public class Sorts
         int[] test5 = {0, 0, 0, 5, -1};
         int[] result5 = {-1, 0, 0, 0, 5};
         
-        /*System.out.println(Arrays.toString(selectionSort(test1)));
+        System.out.println(Arrays.toString(selectionSort(test1)));
         System.out.println(Arrays.toString(selectionSort(test2)));
         System.out.println(Arrays.toString(selectionSort(test3)));
         System.out.println(Arrays.toString(selectionSort(test4)));
@@ -153,7 +153,7 @@ public class Sorts
         System.out.println(Arrays.toString(bubbleSort(test2)));
         System.out.println(Arrays.toString(bubbleSort(test3)));
         System.out.println(Arrays.toString(bubbleSort(test4)));
-        System.out.println(Arrays.toString(bubbleSort(test5)));*/
+        System.out.println(Arrays.toString(bubbleSort(test5)));
         
         mergeSort(test1);
         System.out.println(Arrays.toString(test1));
