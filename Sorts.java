@@ -90,7 +90,7 @@ public class Sorts
         int firstMark = beg;
         int secondMark = mid+1;
         int count = 0;
-        while(firstMark<mid && secondMark<end)
+        while(firstMark<=mid && secondMark<=end)
         {
             if(array[firstMark]<array[secondMark])
             {
