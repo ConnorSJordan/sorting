@@ -11,8 +11,8 @@ public class Sorting
 
     public static void selectionSort(int[] array)
     {
-        int comparisons = 0;
-        int swaps = 0;
+        long comparisons = 0;
+        long swaps = 0;
         for(int i = 0; i<array.length; i++)
         {
             int min = array[i];
@@ -31,13 +31,13 @@ public class Sorting
             array[locationMin]=array[i];
             array[i]=min;
         }
-        System.out.print(" " + comparisons + ", " + swaps);
+        System.out.print(", " + comparisons + ", " + swaps);
     }
     
     public static void insertionSort(int[] array)
     {
-        int comparisons = 0;
-        int assignments = 0;
+        long comparisons = 0;
+        long assignments = 0;
         for (int i = 1; i < array.length; i++) 
         {
             int temp = array[i];
@@ -51,7 +51,7 @@ public class Sorting
             array[j] = temp;
             assignments++;
         }
-        System.out.print(" " + comparisons + ", " + assignments/3);
+        System.out.print(", " + comparisons + ", " + assignments/3);
     }
     
     public static void bubbleSort(int[] array)
@@ -72,16 +72,23 @@ public class Sorting
                 }
             }
         }
-        System.out.print(" " + comparisons + ", " + swaps);
+        System.out.print(", " + comparisons + ", " + swaps);
     }
+    
+    static long comparisons;
+    static long assignments;
     
     public static void mergeSort(int[] array)
     {
+        comparisons = 0;
+        assignments = 0;
         mergeSort(array, 0, array.length -1);
+        System.out.print(", " + comparisons + ", " + assignments/3);
     }
     
     public static void mergeSort(int[] array, int beg, int end)
     {
+        
         if(beg == end)
         {
             return ;
@@ -97,34 +104,39 @@ public class Sorting
     
     public static void merge(int[] array, int beg, int mid, int end)
     {
-        int[] sorted = new int[end+1];
+        int[] sorted = new int[end-beg+1];
         int firstMark = beg;
         int secondMark = mid+1;
         int location = 0;
         while(firstMark<=mid && secondMark<=end)
         {
+            comparisons++;
             if(array[firstMark]<array[secondMark])
             {
                 sorted[location] = array[firstMark];
+                assignments++;
                 firstMark++;
                 location++;
             }
             else
             {
                 sorted[location] = array[secondMark];
+                assignments++;
                 secondMark++;
                 location++;
             }
         }
-        while(firstMark!=mid+1)
+        while(firstMark<=mid)
         {
             sorted[location] = array[firstMark];
+            assignments++;
             firstMark++;
             location++;
         }
-        while(secondMark!=end+1)
+        while(secondMark<=end)
         {
             sorted[location] = array[secondMark];
+            assignments++;
             secondMark++;
             location++;
         }
