@@ -5,7 +5,7 @@ all they need to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
 PROJECT TITLE: Sorting
-PURPOSE OF PROJECT:
+PURPOSE OF PROJECT: Compare sorting algorithms
 VERSION or DATE:
 HOW TO START THIS PROJECT:
 AUTHORS: Connor Jordan
