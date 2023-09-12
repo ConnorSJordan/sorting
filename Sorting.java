@@ -45,6 +45,7 @@ public class Sorting
             while(j!= 0 && temp<array[j-1]) 
             {
                 array[j] = array[j-1];
+                assignments++;
                 j--;
                 comparisons++;
             }
