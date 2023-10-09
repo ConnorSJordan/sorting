@@ -28,9 +28,11 @@ public class Sorting {
                 }
             }
             
-            swaps++;
-            array[locationMin] = array[i];
-            array[i] = min;
+            if(array[i] != array[locationMin]) {
+                swaps++;
+                array[locationMin] = array[i];
+                array[i] = min;
+            }
         }
         
         System.out.print(", " + comparisons + ", " + swaps);
@@ -65,9 +67,12 @@ public class Sorting {
         long swaps = 0;
         
         for (int i = 0; i < array.length; i++) {
+            boolean sorted = true;
+            
             for (int j = 0; j < array.length - 1; j++) {
                 comparisons++;
                 if (array[j] > array[j + 1]) { 
+                    sorted = false;
                     int temp = array[j];
                     
                     array[j] = array[j + 1];
@@ -76,6 +81,9 @@ public class Sorting {
                     * the smaller number(i)*/
                     swaps++;
                 }
+            }
+            if(sorted) {
+                break;
             }
         }
         
