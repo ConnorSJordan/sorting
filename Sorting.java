@@ -100,9 +100,18 @@ public class Sorting {
     
     // Recursivley splits the array in half then calls the merge method
     public static void mergeSort(int[] array, int beg, int end) {
-        
         if (beg == end) {
             return ;
+        } else if (end-beg == 2) {
+            comparisons++;
+            if(array[beg]>array[end]) {
+                int temp = array[beg];
+                
+                array[beg] = array[end];
+                array[end] = temp;
+                
+                assignments += 3;
+            }
         } else {
             int midpoint = (beg + end) / 2;
             
